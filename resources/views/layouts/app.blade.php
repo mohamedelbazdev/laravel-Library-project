@@ -26,8 +26,9 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @include('partial.alerts')
 
+            @include('partial.alerts')
+            @yield('title')
             @yield('content')
         </div>
         <!-- /.content-wrapper -->

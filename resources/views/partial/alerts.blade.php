@@ -4,6 +4,12 @@
             {{ session('msg') }}
         </div>
     @endif
+    @if (session('rmv'))
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ session('rmv') }}
+        </div>
+    @endif
     @if (count($errors) > 0)
         <div class="alert alert-danger" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

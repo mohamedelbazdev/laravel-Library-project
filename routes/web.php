@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +19,6 @@ use App\Http\Controllers\AdminCategoryController;
 Route::get('/', function () {
     return view('index');
 });
+
 Route::resource('category', AdminCategoryController::class);
+Route::resource('users', UserController::class);
