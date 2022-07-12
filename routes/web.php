@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminCategoryController;
+
 use App\Http\Controllers\AdminBookController;
+
+use App\Http\Controllers\UserController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +23,10 @@ use App\Http\Controllers\AdminBookController;
 Route::get('/', function () {
     return view('index');
 });
+
 Route::resource('category', AdminCategoryController::class);
+
 Route::resource('books', AdminBookController::class);
+
+Route::resource('users', UserController::class);
+

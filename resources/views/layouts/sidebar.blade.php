@@ -39,13 +39,6 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-              
-              
-            </ul>
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -95,6 +88,17 @@
                     </ul>
                 </li>
               
+            </ul>
+
+            {{-- USERS  --}}
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item menu-open">
+                    <a href="{{route('users.index')}}" class="nav-link active">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
             </ul>
 
         </nav>

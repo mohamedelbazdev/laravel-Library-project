@@ -101,8 +101,9 @@ class AdminCategoryController extends Controller {
 
     public function destroy( $id ) {
         //
-        DB :: table( 'categories' )->where( 'id', $id )->delete();
-        return redirect( route( 'category.index' ) )->with( 'msg', 'Category Deleted Successfully' );
+        $data = User::find($id);
+        $data->delete();
+        return redirect( route( 'category.index' ) )->with( 'rmv', 'Category Deleted Successfully' );
 
     }
 }
