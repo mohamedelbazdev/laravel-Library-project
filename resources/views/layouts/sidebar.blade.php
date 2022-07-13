@@ -4,7 +4,8 @@
     <a href="/" class="brand-link">
         <img src="{{ asset('vendors/dist/img/AdminLTELogo.png') }}" alt="Admin Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin</span>
+        <span class="brand-text font-weight-light">Library 
+</span>
     </a>
 
     <!-- Sidebar -->
@@ -40,7 +41,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('category.create') }}" class="nav-link active">
+                            <a href="{{ route('category.create') }}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Category</p>
                             </a>
@@ -66,7 +67,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('books.create') }}" class="nav-link active">
+                            <a href="{{ route('books.create') }}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Books</p>
                             </a>
@@ -92,7 +93,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('users.create') }}" class="nav-link active">
+                            <a href="{{ route('users.create') }}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add User</p>
                             </a>
