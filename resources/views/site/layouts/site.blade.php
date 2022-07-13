@@ -47,7 +47,7 @@
 
 
     <!-- Footer -->
-    @include('site.layouts.navbar')
+    @include('site.layouts.footer')
 
 
     <!-- Back to Top -->

@@ -1,5 +1,5 @@
 <!-- Topbar Start -->
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row bg-secondary py-1 px-xl-5">
         <div class="col-lg-6 d-none d-lg-block">
             <div class="d-inline-flex align-items-center h-100">
@@ -71,5 +71,5 @@
             <h5 class="m-0">+012 345 6789</h5>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Topbar End -->
