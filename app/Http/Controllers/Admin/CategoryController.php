@@ -104,6 +104,5 @@ class CategoryController extends Controller {
         //
         DB :: table( 'categories' )->where( 'id', $id )->delete();
         return redirect( route( 'category.index' ) )->with( 'rmv', 'Category Deleted Successfully' );
-
     }
 }

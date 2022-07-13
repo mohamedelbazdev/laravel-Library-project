@@ -7,7 +7,7 @@
             <div class="box-title">
                 <h2>Our Books</h2>
             </div>
-            <a href="{{ route('books.create') }}" class="btn btn-primary" style="margin-left: 900px">Add book</a>
+            <a href="{{ route('books.create') }}" class="btn btn-primary mb-2 float-right" style="margin-left: 900px">Add book</a>
 
         </div>
         <div class="card-body">
@@ -32,7 +32,7 @@
                                                 src="{{$book->image}}"></td>
                             <td style="width: 50%">{{ $book->desc }}</td>
                             <td style="width: 50%">
-                            
+
                             {{optional($book->categories)->Catname}}
                           </td>
                           <td style="width: 50%">{{ $book->author }}</td>
@@ -41,16 +41,16 @@
                                 <form action="{{route('books.destroy',$book->id)}}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
-        
+
                              <button class="btn default btn-sm bg-red" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
-        
+
                                 </form>
 
 
                             </td>
                         </tr>
                     @endforeach
-                 
+
                 </tbody>
             </table>
         </div>

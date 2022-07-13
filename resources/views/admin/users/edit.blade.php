@@ -25,8 +25,8 @@
                 {!! Form::open(['route' => ['users.update', $edit->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
                 <div class="form-group">
                     <label for="exampleInputName">Users</label>
-                    {!! Form::text('name', null, ['class' => 'form-control mb-2', 'placeholder' => 'Enter Your Name']) !!}
-                    {!! Form::email('email', null, ['class' => 'form-control mb-2', 'placeholder' => 'Enter Your Email']) !!}
+                    {!! Form::text('name', $edit['name'], ['class' => 'form-control mb-2']) !!}
+                    {!! Form::email('email', $edit['email'], ['class' => 'form-control mb-2']) !!}
                     {!! Form::password('password', null, ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
                 </div>
                 <br>

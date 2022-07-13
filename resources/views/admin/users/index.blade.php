@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-danger text-bold">Users Page</h1>
+                <h1 class="m-0">All Users</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -18,19 +18,16 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title text-secondary">Users Data</h3>
-    </div>
+<div class="">
     <div class="card-body">
         <table class="table table-bordered">
-            <a href="{{ route('users.create') }}" class="btn btn-primary mb-2 float-right">Add New User</a>
-            <thead class="bg-danger text-white">
+            <a href="{{ route('users.create') }}" class="btn btn-primary m-2 float-right">Add New User</a>
+            <thead class="">
                 <th>No..</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Password</th>
-                <th>Operations</th>
+                <th>ِAction</th>
             </thead>
             <tbody>
             @foreach ($user as $key => $user)

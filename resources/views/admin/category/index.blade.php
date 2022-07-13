@@ -6,7 +6,7 @@
             <div class="box-title">
                 <h2>Categories</h2>
             </div>
-            <a href="{{ route('category.create') }}" class="btn btn-primary" style="margin-left: 900px">Add Category</a>
+            <a href="{{ route('category.create') }}" class="btn btn-primary m-2 float-right">Add Category</a>
 
         </div>
         <div class="card-body">
