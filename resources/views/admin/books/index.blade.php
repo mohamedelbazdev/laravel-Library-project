@@ -5,7 +5,7 @@
 <div class="box">
         <div class="box-header with-border">
             <div class="box-title">
-                <h2>books</h2>
+                <h2>Our Books</h2>
             </div>
             <a href="{{ route('books.create') }}" class="btn btn-primary" style="margin-left: 900px">Add book</a>
 
