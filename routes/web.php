@@ -1,12 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminCategoryController;
-
-use App\Http\Controllers\AdminBookController;
-
-use App\Http\Controllers\UserController;
-
 
 
 /*
@@ -24,9 +21,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('category', AdminCategoryController::class);
+Route::resource('category', CategoryController::class);
 
-Route::resource('books', AdminBookController::class);
+Route::resource('books', BookController::class);
 
 Route::resource('users', UserController::class);
 

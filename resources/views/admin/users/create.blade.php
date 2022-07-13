@@ -27,7 +27,8 @@
                     <label for="exampleInputName">Users</label>
                     {!! Form::text('name', null, ['class' => 'form-control mb-2', 'placeholder' => 'Enter Your Name']) !!}
                     {!! Form::email('email', null, ['class' => 'form-control mb-2', 'placeholder' => 'Enter Your Email']) !!}
-                    {!! Form::password('password', null, ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
+                    {!! Form::password('password', ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
+
                 </div>
                 <br>
 

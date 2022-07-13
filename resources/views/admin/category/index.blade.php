@@ -32,7 +32,8 @@
                             </td>
                         </tr>
                     @endforeach
-                    <div class="modal" id="modal_single_del{{ $key }}" tabindex="-1" role="dialog">
+                    @if(isset($key))
+                      <div class="modal" id="modal_single_del{{ $key }}" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -61,6 +62,7 @@
                             </div>
                         </div>
                 </tbody>
+                    @endif
             </table>
         </div>
     </div>
