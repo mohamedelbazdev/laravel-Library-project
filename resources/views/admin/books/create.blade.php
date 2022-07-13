@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <h1>Craete Book</h1>
+    <h1>Create Book</h1>
     <a href="{{ route('books.index') }}" class="btn btn-primary mb-2 float-right" style="margin-left: 900px">All Books</a>
     <div class="container" style="margin-left: 50px;margin-top:20px;">
         <div class="row">
