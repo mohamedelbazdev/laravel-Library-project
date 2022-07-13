@@ -21,7 +21,7 @@
                 <tbody>
                     @foreach ($categories as $key => $category)
                         <tr>
-                            <td style="width: 25%">{{ $category->id }}</td>
+                            <td style="width: 25%">{{ $loop->iteration }}</td>
                             <td style="width: 50%">{{ $category->Catname }}</td>
                             <td>
                                 <a href="{{ route('category.edit', $category->id) }}" class="btn btn-info">Edit</a>

@@ -12,12 +12,8 @@
                     'enctype' => 'multipart/form-data',
                 ]) !!}
                 <div class="form-group">
-                    <label for="exampleInputName">Category</label>
-                    {!! Form::text('Catname', null, [
-                        'class' => 'form-control',
-                        'placeholder' => 'Enter Category Name',
-                        'value' => $category->Catname,
-                    ]) !!}
+                <label for="Catname">category</label>
+                    {{ Form::text('Catname', $category['Catname'], ['class'=>'form-control','id'=>'Catname']) }}
                 </div>
                 <br>
 

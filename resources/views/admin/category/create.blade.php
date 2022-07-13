@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <h1>Craete Category</h1>
+    <h1>Create Category</h1>
     <a href="{{ route('category.index') }}" class="btn btn-primary" style="margin-left: 900px">All Categories</a>
     <div class="container" style="margin-left: 50px;margin-top:20px;">
         <div class="row">

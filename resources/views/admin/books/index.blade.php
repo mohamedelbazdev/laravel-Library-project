@@ -28,7 +28,7 @@
                         <tr>
                             <td style="width: 25%">{{ $loop->iteration }}</td>
                             <td style="width: 50%">{{ $book->name }}</td>
-                            <td style="width: 50%"><img style="hight:120px;width:120px;margin:5px;"
+                            <td style="width: 50%"><img style="hight:100px;width:100px;margin:5px;"
                                                 src="{{$book->image}}"></td>
                             <td style="width: 50%">{{ $book->desc }}</td>
                             <td style="width: 50%">

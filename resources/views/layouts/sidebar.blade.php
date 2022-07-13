@@ -52,7 +52,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item menu-open" >
+                <li  class="nav-item menu-open" >
                     <a href="#" class="nav-link active">
                         <i class="fa-book"></i>
                         <p>

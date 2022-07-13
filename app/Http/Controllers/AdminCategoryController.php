@@ -68,7 +68,7 @@ class AdminCategoryController extends Controller {
 
     public function edit( $id ) {
         //
-        $category = DB::table( 'categories' )->where( 'id', $id )->first();
+        $category = Category::findOrFail($id);
         return view( 'admin.category.edit', compact( 'category' ) );
     }
 
@@ -101,8 +101,7 @@ class AdminCategoryController extends Controller {
 
     public function destroy( $id ) {
         //
-        $data = User::find($id);
-        $data->delete();
+        DB :: table( 'categories' )->where( 'id', $id )->delete();
         return redirect( route( 'category.index' ) )->with( 'rmv', 'Category Deleted Successfully' );
 
     }
