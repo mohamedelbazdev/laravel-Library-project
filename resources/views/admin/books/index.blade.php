@@ -32,7 +32,7 @@
                                                 src="{{$book->image}}"></td>
                             <td style="width: 50%">{{ $book->desc }}</td>
                             <td style="width: 50%">
-                            
+
                             {{optional($book->categories)->Catname}}
                           </td>
                           <td style="width: 50%">{{ $book->author }}</td>
@@ -41,16 +41,16 @@
                                 <form action="{{route('books.destroy',$book->id)}}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
-        
+
                              <button class="btn default btn-sm bg-red" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
-        
+
                                 </form>
 
 
                             </td>
                         </tr>
                     @endforeach
-                 
+
                 </tbody>
             </table>
         </div>

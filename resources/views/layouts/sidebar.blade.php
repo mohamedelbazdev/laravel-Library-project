@@ -4,7 +4,7 @@
     <a href="/" class="brand-link">
         <img src="{{ asset('vendors/dist/img/AdminLTELogo.png') }}" alt="Admin Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Library 
+        <span class="brand-text font-weight-light">Library
 </span>
     </a>
 
@@ -60,6 +60,7 @@
                 <li class="nav-item menu" >
                     <a href="#" class="nav-link ">
                         <i class="fas fa-book-open"></i>
+
                         <p>
                             Books
                             <i class="right fas fa-angle-left"></i>
@@ -85,6 +86,7 @@
                 {{-- Users --}}
                 <li class="nav-item menu" >
                     <a href="#" class="nav-link ">
+
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Users
