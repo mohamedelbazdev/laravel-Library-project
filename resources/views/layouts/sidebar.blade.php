@@ -58,7 +58,7 @@
                 {{-- Books --}}
                 <li class="nav-item menu-" >
                     <a href="#" class="nav-link active">
-                        <i class="fa-book"></i>
+                        <i class="fas fa-book-open"></i>
                         <p>
                             Books
                             <i class="right fas fa-angle-left"></i>
