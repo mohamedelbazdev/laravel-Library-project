@@ -49,8 +49,4 @@ Route::get('/admins/{admin}', [admincontroller::class,"show"])->name('admins.sho
 Route::get('admins/admin/create', [admincontroller::class,"create"])->name('admin.create');
 Route::get('admins/admin', [admincontroller::class,"store"])->name('admins.store');
 
-
-
-=======
 Route::resource('users', UserController::class);
->>>>>>> Stashed changes
