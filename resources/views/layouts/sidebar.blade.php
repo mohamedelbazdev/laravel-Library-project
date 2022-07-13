@@ -30,8 +30,8 @@
                with font-awesome or any other icon font library -->
 
                {{-- Categories --}}
-                <li class="nav-item menu-">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item menu">
+                    <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Categories
@@ -56,8 +56,8 @@
                 </li>
 
                 {{-- Books --}}
-                <li class="nav-item menu-" >
-                    <a href="#" class="nav-link active">
+                <li class="nav-item menu" >
+                    <a href="#" class="nav-link ">
                         <i class="fas fa-book-open"></i>
                         <p>
                             Books
@@ -82,8 +82,8 @@
                 </li>
 
                 {{-- Users --}}
-                <li class="nav-item menu-" >
-                    <a href="#" class="nav-link active">
+                <li class="nav-item menu" >
+                    <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Users
@@ -112,3 +112,10 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+<script>
+    $(".nav-link").on("click", function() {
+  $(".nav-link").find(".active").removeClass("active");
+  $(this).parent().addClass("active");
+});
+</script>
