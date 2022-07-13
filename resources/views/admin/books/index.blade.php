@@ -7,7 +7,7 @@
             <div class="box-title">
                 <h2>Our Books</h2>
             </div>
-            <a href="{{ route('books.create') }}" class="btn btn-primary" style="margin-left: 900px">Add book</a>
+            <a href="{{ route('books.create') }}" class="btn btn-primary mb-2 float-right" style="margin-left: 900px">Add book</a>
 
         </div>
         <div class="card-body">
