@@ -20,7 +20,7 @@
             </div>
         </div>
 
-       
+
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -28,6 +28,8 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+               {{-- Categories --}}
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -43,7 +45,7 @@
                                 <p>Add Category</p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="{{ route('category.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -52,7 +54,9 @@
                         </li>
                     </ul>
                 </li>
-                <li  class="nav-item menu-open" >
+
+                {{-- Books --}}
+                <li class="nav-item menu-open" >
                     <a href="#" class="nav-link active">
                         <i class="fa-book"></i>
                         <p>
@@ -67,7 +71,7 @@
                                 <p>Add Books</p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="{{ route('books.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -76,20 +80,33 @@
                         </li>
                     </ul>
                 </li>
-              
-            </ul>
 
-            {{-- USERS  --}}
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                <li class="nav-item menu-open">
-                    <a href="{{route('users.index')}}" class="nav-link active">
+                {{-- Users --}}
+                <li class="nav-item menu-open" >
+                    <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-user"></i>
-                        <p>Users</p>
+                        <p>
+                            Users
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('users.create') }}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add User</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('users.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All users</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-
         </nav>
         <!-- /.sidebar-menu -->
     </div>
