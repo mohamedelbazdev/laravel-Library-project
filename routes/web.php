@@ -51,3 +51,6 @@ Route::get('admins/admin', [admincontroller::class,"store"])->name('admins.store
 
 
 
+=======
+Route::resource('users', UserController::class);
+>>>>>>> Stashed changes
