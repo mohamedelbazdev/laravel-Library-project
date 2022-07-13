@@ -1,4 +1,4 @@
-@extends('layouts.site')
+@extends('site.layouts.site')
 
 @section('pageContent')
 <!-- Shop Product Start -->

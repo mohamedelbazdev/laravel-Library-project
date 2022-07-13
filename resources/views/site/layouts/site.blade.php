@@ -29,10 +29,10 @@
 <body>
 
     <!-- TopBar -->
-    @include('layouts.topbar')
+    @include('site.layouts.topbar')
 
     <!-- NavBar -->
-    @include('layouts.navbar')
+    @include('site.layouts.navbar')
 
     <!-- Shop Start -->
     <div class="container-fluid">
@@ -47,7 +47,7 @@
 
 
     <!-- Footer -->
-    @include('layouts.navbar')
+    @include('site.layouts.navbar')
 
 
     <!-- Back to Top -->
