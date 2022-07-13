@@ -30,7 +30,7 @@
                with font-awesome or any other icon font library -->
 
                {{-- Categories --}}
-                <li class="nav-item menu-open">
+                <li class="nav-item menu-">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -56,7 +56,7 @@
                 </li>
 
                 {{-- Books --}}
-                <li class="nav-item menu-open" >
+                <li class="nav-item menu-" >
                     <a href="#" class="nav-link active">
                         <i class="fa-book"></i>
                         <p>
@@ -82,7 +82,7 @@
                 </li>
 
                 {{-- Users --}}
-                <li class="nav-item menu-open" >
+                <li class="nav-item menu-" >
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-user"></i>
                         <p>

@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 class AdminBookController extends Controller
 {
     /**
@@ -22,6 +23,7 @@ class AdminBookController extends Controller
 
     public function index()
     {
+        // Session::put('book');
         $books = Book::latest()->get();
         return view( 'admin.books.index' , compact('books'));
     }
