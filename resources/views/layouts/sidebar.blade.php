@@ -17,7 +17,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="{{ route('admins.index') }}" class="d-block">Admin</a>
             </div>
         </div>
 
