@@ -46,6 +46,12 @@ class AdminBookController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate( $request, [
+            'name' => 'required',
+            'desc' => 'required',
+            'image' => 'required',
+            'author' => 'required',
+        ] );
         $book = new Book();
         $book->name = $request['name'];
         $book->desc = $request['desc'];
@@ -100,6 +106,12 @@ class AdminBookController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate( $request, [
+            'name' => 'required',
+            'desc' => 'required',
+            'image' => 'required',
+            'author' => 'required',
+        ] );
         DB::beginTransaction();
         $book = Book::find($id);
         $book->name = $request->name;
@@ -137,6 +149,6 @@ class AdminBookController extends Controller
     {
         //
         DB :: table( 'books' )->where( 'id', $id )->delete();
-        return redirect( route( 'books.index' ) )->with( 'msg', 'book Deleted Successfully' );
+        return redirect( route( 'books.index' ) )->with( 'rmv', 'book Deleted Successfully' );
     }
 }
