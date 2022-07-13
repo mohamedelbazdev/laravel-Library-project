@@ -19,7 +19,7 @@
                         <th>Image</th>
                         <th>Desc</th>
                         <th>Category</th>
-                        <th>Created Date</th>
+                        <th>Author</th>
                         <th style="width: 40px">Action</th>
                     </tr>
                 </thead>
@@ -35,7 +35,7 @@
                             
                             {{optional($book->categories)->Catname}}
                           </td>
-                          <td style="width: 50%">{{ $book->created_at }}</td>
+                          <td style="width: 50%">{{ $book->author }}</td>
                             <td>
                                 <a href="{{ route('books.edit', $book->id) }}" class="btn btn-info">Edit</a>
                                 <form action="{{route('books.destroy',$book->id)}}" method="POST">

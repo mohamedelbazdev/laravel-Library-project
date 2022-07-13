@@ -22,6 +22,10 @@
                     
                     <label for="image">image</label>
                     {{ Form::file('image',['class'=>'form-control','id'=>'image']) }}
+               
+                    <label for="author">Book Author</label>
+                    {{ Form::text('author', $book['author'], ['class'=>'form-control','id'=>'author']) }}
+                    
                 </div>
                 <br>
 

@@ -57,6 +57,7 @@ class AdminBookController extends Controller
             $file->move($destinationPath, $filename);
             $book->image = 'upload/books/' . $filename;
         }
+        $book->author = $request['author'];
         $book->save();
         
         // dd($book);
@@ -117,6 +118,7 @@ class AdminBookController extends Controller
             $file->move($destinationPath, $filename);
             $book->image = 'upload/books/' . $filename;
         }
+        $book->author = $request->author;
         
         $book->save();
         DB::commit();

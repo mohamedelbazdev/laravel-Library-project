@@ -18,7 +18,9 @@
                     <br>
                     <label for="categories"> Category</label>
                     {{ Form::select('category_id',$categories, null, ['class'=>'form-control select2','id'=>'category_id']) }}
-                                               
+                    <label for="author">Book Author</label>
+                    {!! Form::text('author', null, ['class' => 'form-control', 'placeholder' => 'Enter Book author']) !!}
+                                             
                 </div>
                 <br>
 
