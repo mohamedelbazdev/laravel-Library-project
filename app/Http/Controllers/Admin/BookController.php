@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
-class AdminBookController extends Controller
+use Illuminate\Support\Str;
+
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -67,9 +68,9 @@ class AdminBookController extends Controller
         }
         $book->author = $request['author'];
         $book->save();
-        
+
         // dd($book);
-        
+
         return redirect('books')->with( 'msg', 'Book Created Successfully' );
     }
 
@@ -133,7 +134,7 @@ class AdminBookController extends Controller
             $book->image = 'upload/books/' . $filename;
         }
         $book->author = $request->author;
-        
+
         $book->save();
         DB::commit();
         // dd($book);
