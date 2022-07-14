@@ -60,3 +60,5 @@ Route::group(array('prefix' => 'site'), function () {
     Route::get('/category/{id}', [PagesController::class,'viewCategory'])->name('category');
     Route::get('/book/{id}',[PagesController::class,'viewBook'])->name('book');
     });
+
+

@@ -16,7 +16,7 @@ $category = DB::table('categories')->get();
                 <div class="navbar-nav w-100">
                     <div class="nav-item dropdown dropright">
                         @foreach ($category as $cat)
-                            <a href="{{ URL::to('catbook/' . $cat->id) }}"
+                            <a href="{{ route('category', $cat->id) }}"
                                 class="nav-item nav-link">{{ $cat->Catname }}</a>
                         @endforeach
                     </div>
