@@ -1,4 +1,5 @@
 <?php
+<<<<<<< Updated upstream
 
 namespace App\Models;
 
@@ -21,4 +22,17 @@ class Admin extends Model
     protected $table ='admins';
     protected $data =[];
 
+=======
+namespace App\Models;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+   class Admin extends Authenticatable
+    {
+        protected $guard = 'admin';
+        protected $fillable = [
+            'name', 'email', 'password',
+        ];
+        protected $hidden = [
+            'password', 'remember_token',
+        ];
+>>>>>>> Stashed changes
 }
