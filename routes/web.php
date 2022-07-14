@@ -3,13 +3,7 @@
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
-<<<<<<< Updated upstream
-use App\Http\Controllers\Admin\admincontroller;
-use App\Http\Controllers\Site\SiteBookController;
-=======
 use App\Http\Controllers\Admin\AdminController;
-
->>>>>>> Stashed changes
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
@@ -69,5 +63,5 @@ Route::resource('users', UserController::class);
 ///////Site Controllers//////
 Route::group(array('prefix' => 'site'), function () {
     Route::get('/books', [SiteBookController::class, 'books'])->name('books');
-    
+
     });
