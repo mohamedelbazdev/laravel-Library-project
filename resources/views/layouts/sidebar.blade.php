@@ -109,6 +109,33 @@
                         </li>
                     </ul>
                 </li>
+
+                {{-- Admins --}}
+                <li class="nav-item menu" >
+                    <a href="#" class="nav-link ">
+
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Admin
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admins.create') }}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Admin</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admins.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All admins</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
