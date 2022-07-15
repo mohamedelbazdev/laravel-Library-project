@@ -65,8 +65,10 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $data = $request->all();
-        $check = $this->create($data);
+        $check = $this->create(array_merge(
+            $request->all(),
+            ['password' => \Illuminate\Support\Facades\Hash::make($request->password)],
+        ));
 
         return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }

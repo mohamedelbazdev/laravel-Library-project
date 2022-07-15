@@ -39,7 +39,7 @@
                     <td>{{$user->password}}</td>
                     <td>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success">Edit</a>
-                        <form class="d-inline" action="{{ url('/users/' . $user->id) }}" method="POST">
+                        <form class="d-inline" action="{{ url('/admin/users/' . $user->id) }}" method="POST">
                             @csrf
                             @method('delete')
                                 <button type="submit" class="btn btn-danger">Delete</button>
