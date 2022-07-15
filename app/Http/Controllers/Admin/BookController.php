@@ -71,7 +71,7 @@ class BookController extends Controller
 
         // dd($book);
 
-        return redirect('books')->with( 'msg', 'Book Created Successfully' );
+        return redirect('admin/books')->with( 'msg', 'Book Created Successfully' );
     }
 
     /**
@@ -139,7 +139,7 @@ class BookController extends Controller
         DB::commit();
         // dd($book);
         $message = ('book updated successfully');
-        return redirect('books')->with( 'msg', 'Book Updated Successfully' );;
+        return redirect('admin/books')->with( 'msg', 'Book Updated Successfully' );;
     }
 
     /**
