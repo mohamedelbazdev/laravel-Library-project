@@ -95,7 +95,7 @@ class UserController extends Controller
         User::where('id',$id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>$request->password,
+            'password'=>Hash::make($request->password),
         ]);
         return redirect( route( 'users.index' ) )->with( 'msg', 'User Updated Successfully' );
     }
@@ -112,7 +112,7 @@ class UserController extends Controller
         $user = User::findOrFail($user_id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = Hash::make($request->input('password'));
 
         $user->update();
         return redirect()->back()->with( 'msg', 'User Updated Successfully' );

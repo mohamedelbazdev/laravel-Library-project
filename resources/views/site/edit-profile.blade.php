@@ -10,15 +10,15 @@
                     @csrf
                     <div class="mb-3">
                       <label for="name" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="name"  value="{{Auth::user()->name}}">
+                      <input type="text" class="form-control" id="name" name="name"  value="{{Auth::user()->name}}">
                     </div>
                     <div class="mb-3">
                       <label for="email" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="email" value="{{Auth::user()->email}}" >
+                      <input type="email" class="form-control" id="email" name="email" value="{{Auth::user()->email}}" >
                     </div>
                     <div class="mb-3">
                       <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password">
+                      <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <button type="submit" class="btn btn-primary">Edit</button>
                   </form>
