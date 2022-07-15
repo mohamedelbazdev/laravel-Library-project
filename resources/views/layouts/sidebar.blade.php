@@ -136,6 +136,32 @@
                         </li>
                     </ul>
                 </li>
+                {{-- Authors --}}
+                <li class="nav-item menu" >
+                    <a href="#" class="nav-link ">
+
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Author
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('authors.create') }}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Author</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('authors.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Authors</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

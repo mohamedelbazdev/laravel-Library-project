@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\authorController;
 
 use App\Http\Controllers\Admin\admincontroller;
 use App\Http\Controllers\Site\SiteBookController;
@@ -29,6 +30,7 @@ Route::get('/', function () {
 });
 
 ///////Admin controllers/////
+Route::resource('authors', authorController::class);
 Route::resource('category', CategoryController::class);
 
 Route::resource('books', BookController::class);
@@ -40,15 +42,18 @@ Route::get('/users/active/{admin}', [UserController::class,"Active"])->name('Act
 Route::resource('admins', admincontroller::class);
 
 
-Route::resource('admins/admin','App\Http\Controllers\admincontroller');
+// Route::resource('admins/admin','App\Http\Controllers\admincontroller');
 
-Route::get('/admins/admin', [admincontroller::class,"index"])->name('admins.index');
-Route::get('/admins/{admin}', [admincontroller::class,"show"])->name('admins.show');
+// Route::get('/admins/admin', [admincontroller::class,"index"])->name('admins.index');
+// Route::get('/admins/{admin}', [admincontroller::class,"show"])->name('admins.show');
 
-Route::get('admins/admin/create', [admincontroller::class,"create"])->name('admin.create');
-Route::get('admins/admin', [admincontroller::class,"store"])->name('admins.store');
+// Route::get('admins/admin/create', [admincontroller::class,"create"])->name('admin.create');
+// Route::get('admins/admin', [admincontroller::class,"store"])->name('admins.store');
 
 Route::resource('users', UserController::class);
+
+
+
 
 
 
