@@ -7,6 +7,7 @@ use App\Models\User;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -97,6 +98,24 @@ class UserController extends Controller
             'password'=>$request->password,
         ]);
         return redirect( route( 'users.index' ) )->with( 'msg', 'User Updated Successfully' );
+    }
+
+
+    public function EditProfile()
+    {
+        return view('site.edit-profile');
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $user = User::findOrFail($user_id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+
+        $user->update();
+        return redirect()->back()->with( 'msg', 'User Updated Successfully' );
     }
 
     public function changeUserStatus(Request $request)

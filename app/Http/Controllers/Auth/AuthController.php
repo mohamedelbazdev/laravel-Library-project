@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
+
 use App\Models\User;
-use Hash;
+use Illuminate\Support\Facades\Session;
+
+
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -44,6 +47,7 @@ class AuthController extends Controller
         ]);
         // dd($request->email);
         $credentials = $request->only('email', 'password');
+        $credentials['status'] = 1;
         if (Auth::attempt($credentials)) {
             return redirect('/site/books')
                         ->withSuccess('You have Successfully loggedin');

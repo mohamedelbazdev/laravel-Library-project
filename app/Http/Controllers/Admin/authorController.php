@@ -47,7 +47,7 @@ class authorController extends Controller
         $user = Author::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>$request->password,
+            'password'=>Hash::make($request->password),
             'book_id'=>$request->book_id,
         ]);
         $user->save();

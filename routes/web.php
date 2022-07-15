@@ -53,11 +53,6 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/users/inactive/{admin}', [UserController::class,"Inactive"])->name('Inactive');
 Route::get('/users/active/{admin}', [UserController::class,"Active"])->name('Active');
 
-
-Route::group(array('prefix' => 'site'), function () {
-    Route::get('/books', [SiteBookController::class, 'books'])->name('books');
-});
-
 // Route::resource('admins/admin','App\Http\Controllers\admincontroller');
 
 // Route::get('/admins/admin', [admincontroller::class,"index"])->name('admins.index');
@@ -72,6 +67,8 @@ Route::resource('users', UserController::class);
 ///////Site Controllers//////
 Route::group(array('prefix' => 'site'), function () {
     Route::get('/books', [SiteBookController::class, 'books'])->name('books');
+    Route::get('/profile', [UserController::class, 'EditProfile'])->name('profile');
+    Route::post('/profile-update',[UserController::class, 'updateProfile'])->name('profile-update');
 
     Route::get('/catbook/{id}/', [CatBooksController::class, 'CatBook']);
 
@@ -81,4 +78,4 @@ Route::group(array('prefix' => 'site'), function () {
     Route::get('/category/{id}', [PagesController::class,'viewCategory'])->name('category');
     Route::get('/book/{id}',[PagesController::class,'viewBook'])->name('book');
 
-    });
+});

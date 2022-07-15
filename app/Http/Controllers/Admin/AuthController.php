@@ -21,10 +21,9 @@ class AuthController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        $credentials = $request->only('email', 'password');
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect('/admin');
 
-        if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect('/');
         }
 
         return back()->withInput($request->only('email', 'remember'));

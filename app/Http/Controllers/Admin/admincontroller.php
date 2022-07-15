@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -46,7 +45,7 @@ class AdminController extends Controller
         $user = Admin::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>Hash::make($request->password),
+            'password'=>$request->password,
         ]);
         $user->save();
         return redirect( route( 'admins.index' ) )->with( 'msg', 'Admin Added Successfully' );
@@ -92,7 +91,7 @@ class AdminController extends Controller
         Admin::where('id',$id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>Hash::make($request->password),
+            'password'=>$request->password,
         ]);
         return redirect( route( 'admins.index' ) )->with( 'msg', 'Admin Updated Successfully' );
     }
