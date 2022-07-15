@@ -1,5 +1,9 @@
 @php
 $category = DB::table('categories')->get();
+$categories = \App\Models\Category::query()
+    ->withCount('books')
+    ->get();
+// dd($categories);
 @endphp
 <!-- Navbar Start -->
 <div class="container-fluid bg-dark mb-30">
@@ -16,8 +20,15 @@ $category = DB::table('categories')->get();
                 <div class="navbar-nav w-100">
                     <div class="nav-item dropdown dropright">
                         @foreach ($category as $cat)
-                            <a href="{{ route('category', $cat->id) }}"
-                                class="nav-item nav-link">{{ $cat->Catname }}</a>
+                            @foreach ($categories as $category)
+                                <a href="{{ route('category', $cat->id) }}"
+                                    class="nav-item nav-link">{{ $cat->Catname }}
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        style="margin-left: 5px;margin-top:5px">
+                                        {{ $category->books_count }}< <span class="visually-hidden">Books Count</span>
+                                </a>
+                            @endforeach
                         @endforeach
                     </div>
                 </div>
@@ -48,7 +59,7 @@ $category = DB::table('categories')->get();
                         <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
                     </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                        <a href="{{url('site/favourites') }}" class="btn px-0">
+                        <a href="{{ url('site/favourites') }}" class="btn px-0">
                             <i class="fas fa-heart text-primary"></i>
                             <span class="badge text-secondary border border-secondary rounded-circle"
                                 style="padding-bottom: 2px;"></span>

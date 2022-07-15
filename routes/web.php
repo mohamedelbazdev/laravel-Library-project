@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\authorController;
 use App\Http\Controllers\Site\PagesController;
+use App\Http\Controllers\Site\PaymentController;
 
 
 
@@ -76,6 +77,10 @@ Route::group(array('prefix' => 'site'), function () {
     Route::get('favourites', [FavouriteController::class, 'index'])->name('site.favourite');
     Route::post('add-to-favourite', [FavouriteController::class, 'add']);
     Route::get('delete-fav/{id}', [FavouriteController::class, 'destroy'])->name('fav.destroy');
+
+    Route::get('payments', [PaymentController::class, 'index'])->name('site.payments');
+    Route::post('add-to-payments', [PaymentController::class, 'add']);
+    Route::get('delete-payment/{id}', [PaymentController::class, 'destroy'])->name('payments.destroy');
 
     Route::get('/category/{id}', [PagesController::class,'viewCategory'])->name('category');
     Route::get('/book/{id}',[PagesController::class,'viewBook'])->name('book');
