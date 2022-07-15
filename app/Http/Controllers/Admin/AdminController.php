@@ -45,7 +45,7 @@ class AdminController extends Controller
         $user = Admin::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>$request->password,
+            'password'=>Hash::make($request->password),
         ]);
         $user->save();
         return redirect( route( 'admins.index' ) )->with( 'msg', 'Admin Added Successfully' );
@@ -91,7 +91,7 @@ class AdminController extends Controller
         Admin::where('id',$id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>$request->password,
+            'password'=>Hash::make($request->password),
         ]);
         return redirect( route( 'admins.index' ) )->with( 'msg', 'Admin Updated Successfully' );
     }
