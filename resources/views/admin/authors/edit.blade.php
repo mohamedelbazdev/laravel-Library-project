@@ -27,7 +27,7 @@
                     <label for="exampleInputName">authors</label>
                     {!! Form::text('name', $edit['name'], ['class' => 'form-control mb-2']) !!}
                     {!! Form::email('email', $edit['email'], ['class' => 'form-control mb-2']) !!}
-                    {!! Form::password('password', null, ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
+                    {!! Form::password('password', ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
                     <input type="number" name="book_id" min="0" value="book_id" class="form-control"placeholder="Enter Your book_id">
 
                 </div>

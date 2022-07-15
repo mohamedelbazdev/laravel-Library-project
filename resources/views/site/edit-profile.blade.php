@@ -6,7 +6,7 @@
     <h1>Welcome {{Auth::user()->name}}</h1>
     <div class="row">
         <div class="col-md-9 col-12">
-                <form method="POST" action="{{url('profile-update')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{url('site/profile-update')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                       <label for="name" class="form-label">Name</label>
