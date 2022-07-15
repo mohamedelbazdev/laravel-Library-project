@@ -85,10 +85,7 @@
                                     "_token": "{{ csrf_token() }}"
                                 },
                                 success:function(response){
-                                    
-                                   swal({
-                                    text:"massege"
-                                   })
+                                 alert(response.status);
                                 }
                             })
                         })
