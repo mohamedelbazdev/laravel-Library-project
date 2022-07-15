@@ -27,6 +27,7 @@
                     {!! Form::text('name', null, ['class' => 'form-control mb-2', 'placeholder' => 'Enter Your Name']) !!}
                     {!! Form::email('email', null, ['class' => 'form-control mb-2', 'placeholder' => 'Enter Your Email']) !!}
                     {!! Form::password('password', ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
+                    {!! Form::hidden('role_id', '1') !!}
 
                 </div>
                 <br>

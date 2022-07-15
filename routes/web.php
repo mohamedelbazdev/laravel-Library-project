@@ -26,13 +26,14 @@ use App\Http\Controllers\Site\PagesController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
 Route::get('admin/login', [AdminAuthController::class, 'index']);
 Route::post('admin/login', [AdminAuthController::class, 'login'])->name('login.admin');
 
 Route::group(['middleware' => 'isAdmin','prefix' => 'admin'], function () {
+    Route::get('/', function () {
+        return view('index');
+    });
     Route::resource('category', CategoryController::class);
     Route::resource('books', BookController::class);
     Route::resource('users', UserController::class);
