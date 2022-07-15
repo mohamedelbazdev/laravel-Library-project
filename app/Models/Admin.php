@@ -1,38 +1,18 @@
 <?php
-<<<<<<< Updated upstream
 
-namespace App\Models;
+namespace App\Models
+;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Admin extends Model
+class Admin extends Authenticatable
 {
-    use HasFactory;
+    protected $guard = 'admin';
+
     protected $fillable = [
-        'f_name',
-        'last_name',
-        'email',
-        'password',
-        'biography',
-        'updated_at',
-        'created_at'
+        'name', 'email', 'password',
     ];
 
-    protected $table ='admins';
-    protected $data =[];
-
-=======
-namespace App\Models;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-   class Admin extends Authenticatable
-    {
-        protected $guard = 'admin';
-        protected $fillable = [
-            'name', 'email', 'password',
-        ];
-        protected $hidden = [
-            'password', 'remember_token',
-        ];
->>>>>>> Stashed changes
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }
