@@ -53,4 +53,5 @@ Route::resource('users', UserController::class);
 Route::group(array('prefix' => 'site'), function () {
     Route::get('/books', [SiteBookController::class, 'books'])->name('books');
     Route::get('/catbook/{id}/', [CatBooksController::class, 'CatBook']);
+    Route::get('favourites', [FavouriteController::class, 'index']);
     });
