@@ -29,7 +29,7 @@
                             <td style="width: 25%">{{ $loop->iteration }}</td>
                             <td style="width: 50%">{{ $book->name }}</td>
                             <td style="width: 50%"><img style="hight:100px;width:100px;margin:5px;"
-                                                src="{{$book->image}}"></td>
+                                                src="{{URL::to('/'.$book['image'])}}"></td>
                             <td style="width: 50%">{{ $book->desc }}</td>
                             <td style="width: 50%">
 
