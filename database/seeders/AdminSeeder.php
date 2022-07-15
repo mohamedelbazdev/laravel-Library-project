@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 
 class AdminSeeder extends Seeder
@@ -22,6 +22,6 @@ class AdminSeeder extends Seeder
             'role_id' => 1,
         ];
 
-        User::create($admin);
+        Admin::create($admin);
     }
 }
