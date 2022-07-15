@@ -21,6 +21,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9 col-12">
+            <h3>Edit {{$edit['name']}} Info</h3>
                 <a href="{{ route('users.index') }}" class="btn btn-primary mb-2 float-right">All Users</a>
                 {!! Form::open(['route' => ['users.update', $edit->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
                 <div class="form-group">

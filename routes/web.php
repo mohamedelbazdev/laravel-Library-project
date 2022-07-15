@@ -4,16 +4,27 @@ use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Site\SiteBookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
-use App\Http\Controllers\Site\SiteBookController;
-
-
 use App\Http\Controllers\Admin\authorController;
 use App\Http\Controllers\Site\PagesController;
 
 
+
+// use Auth;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
 Route::get('/', function () {
     return view('index');
@@ -41,11 +52,6 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/users/inactive/{admin}', [UserController::class,"Inactive"])->name('Inactive');
 Route::get('/users/active/{admin}', [UserController::class,"Active"])->name('Active');
 
-
-Route::group(array('prefix' => 'site'), function () {
-    Route::get('/books', [SiteBookController::class, 'books'])->name('books');
-});
-
 // Route::resource('admins/admin','App\Http\Controllers\admincontroller');
 
 // Route::get('/admins/admin', [admincontroller::class,"index"])->name('admins.index');
@@ -55,27 +61,13 @@ Route::group(array('prefix' => 'site'), function () {
 // Route::get('admins/admin', [admincontroller::class,"store"])->name('admins.store');
 
 Route::resource('users', UserController::class);
-Route::resource('admins', AdminController::class);
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-Route::get('dashboard', [AuthController::class, 'dashboard']);
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
-
-Route::resource('admins', admincontroller::class);
-
-
-Route::group(array('prefix' => 'site'), function () {
-    Route::get('/books', [SiteBookController::class, 'books'])->name('books');
-
-});
 
 ///////Site Controllers//////
 Route::group(array('prefix' => 'site'), function () {
     Route::get('/books', [SiteBookController::class, 'books'])->name('books');
+    Route::get('/profile', [UserController::class, 'EditProfile'])->name('profile');
+    Route::post('/profile-update',[UserController::class, 'updateProfile'])->name('profile-update');
 
     Route::get('/catbook/{id}/', [CatBooksController::class, 'CatBook']);
 
