@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Traits\ApiResponseTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
@@ -47,19 +48,15 @@ class BookController extends Controller
         $books = $this->bookModel->where('name', 'like', '%' . $request->post('name') . '%')->get();
 
         return $this->apiResponse('successfully', $books);
-    }  }
+    }
 
-    public function getByCat(Request $request)
+    public function getFavoriteBook()
     {
-        $validator = Validator::make($request->all(), [
-            'cat_id' => 'required|exists:categories,id',
-        ]);
+        $books = $this->bookModel::whereHas('favorites', function ($query) {
 
-        if ($validator->fails()) {
-            return $this->apiResponseValidation($validator);
-        }
+            $query->where('user_id', Auth::id());
 
-        $books = $this->bookModel->where('name', 'like', '%' . $request->post('name') . '%')->get();
+        })->get();
 
         return $this->apiResponse('successfully', $books);
     }
@@ -81,9 +78,19 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'book_id' => 'required|exists:books,id',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->apiResponseValidation($validator);
+        }
+
+        $book = $this->bookModel->find($request->post('book_id'));
+
+        return $this->apiResponse('successfully', $book);
     }
 
     /**

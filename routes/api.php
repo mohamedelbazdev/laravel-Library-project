@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'user', 'middleware' => 'auth:sanctum'], function (){
     Route::get('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
     Route::post('books/search', [\App\Http\Controllers\API\BookController::class, 'search']);
+    Route::get('books/favorite', [\App\Http\Controllers\API\BookController::class, 'getFavoriteBook']);
+    Route::post('books/show', [\App\Http\Controllers\API\BookController::class, 'show']);
 });
 
 Route::group(['prefix' => 'user'], function (){

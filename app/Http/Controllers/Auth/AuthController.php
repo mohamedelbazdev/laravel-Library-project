@@ -45,7 +45,7 @@ class AuthController extends Controller
         // dd($request->email);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect('dashboard')
+            return redirect('/site/books')
                         ->withSuccess('You have Successfully loggedin');
         }
 
