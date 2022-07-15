@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class SiteUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::orderBy('created_at','desc')->get();
-        return view('admin.users.index',compact('user'));
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        //
     }
 
     /**
@@ -39,19 +35,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-        ]);
-        $user = User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=> Hash::make($request->password),
-        ]);
-        $user->save();
-        return redirect( route( 'users.index' ) )->with( 'msg', 'User Added Successfully' );
-
+        //
     }
 
     /**
@@ -73,8 +57,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $edit = User::find($id) ;
-      return view( 'admin.users.edit',compact('edit'));
+        $edit = User::find($id) ;
+        return view( 'site.edit-profile',compact('edit'));
     }
 
     /**
@@ -99,14 +83,6 @@ class UserController extends Controller
         return redirect( route( 'users.index' ) )->with( 'msg', 'User Updated Successfully' );
     }
 
-    public function changeUserStatus(Request $request)
-    {
-        $users = User::find($request->user_id);
-        $users->status = $request->status;
-        $users->save();
-        return redirect( route( 'users.index' ) )->with( 'msg', 'User Status Updated Successfully' );
-    }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -115,18 +91,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect( route( 'users.index' ) )->with( 'rmv', 'User has been deleted' );
-    }
-
-    public function Inactive($id)
-    {
-        User::find($id)->update(['status' => 0]);
-        return redirect()->back()->with( 'rmv', 'User has been Inactive' );
-    }
-    public function Active($id)
-    {
-        User::find($id)->update(['status' => 1]);
-        return redirect()->back()->with( 'msg', 'User has been Active' );
+        //
     }
 }

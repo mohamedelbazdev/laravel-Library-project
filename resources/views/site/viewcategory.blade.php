@@ -24,7 +24,8 @@
                     </div>
                 </div>
             </div>
-            @foreach ($catbooks as $book)
+            <h1 class="section-title position-relative text-uppercase mx-xl-5 mb-4"> {{ $category->Catname }}</h1>
+            @foreach ($books as $book)
                 <div class="card m-4" style="width: 18rem; ">
                     <div class="product-item bg-light mb-4">
                         <div class="product-img position-relative overflow-hidden">
@@ -43,7 +44,8 @@
                         </div>
                         <div class="text-center py-4">
 
-                            <a class="h6 text-decoration-none text-truncate" href="">{{ $book['name'] }}</a>
+                            <a class="h6 text-decoration-none text-truncate"
+                                href="{{ route('book', $book->id) }}">{{ $book['name'] }}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <p class="inner__des">{{ $book['desc'] }}</p>
                             </div>
@@ -68,7 +70,7 @@
             <nav>
 
                 <ul class="pagination justify-content-center">
-                    <!-- {{ $books->links() }} -->
+                    {{-- <!-- {{ $books->links() }} --> --}}
                     <li class="page-item disabled"><a class="page-link" href="#">Previous</span></a></li>
                     <li class="page-item active"><a class="page-link" href=" #">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>

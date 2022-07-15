@@ -8,6 +8,23 @@ use App\Http\Controllers\Site\SiteBookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\authorController;
+use App\Http\Controllers\Site\PagesController;
+
+
+
+// use Auth;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
 Route::get('/', function () {
     return view('index');
@@ -23,6 +40,7 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin'], function () {
 });
 
 ///////Admin controllers/////
+Route::resource('authors', authorController::class);
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
@@ -31,10 +49,30 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('dashboard', [AuthController::class, 'dashboard']);
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-
-Route::resource('admins', admincontroller::class);
+Route::get('/users/inactive/{admin}', [UserController::class,"Inactive"])->name('Inactive');
+Route::get('/users/active/{admin}', [UserController::class,"Active"])->name('Active');
 
 
 Route::group(array('prefix' => 'site'), function () {
     Route::get('/books', [SiteBookController::class, 'books'])->name('books');
 });
+
+// Route::resource('admins/admin','App\Http\Controllers\admincontroller');
+
+// Route::get('/admins/admin', [admincontroller::class,"index"])->name('admins.index');
+// Route::get('/admins/{admin}', [admincontroller::class,"show"])->name('admins.show');
+
+// Route::get('admins/admin/create', [admincontroller::class,"create"])->name('admin.create');
+// Route::get('admins/admin', [admincontroller::class,"store"])->name('admins.store');
+
+Route::resource('users', UserController::class);
+
+
+///////Site Controllers//////
+Route::group(array('prefix' => 'site'), function () {
+    Route::get('/books', [SiteBookController::class, 'books'])->name('books');
+
+    Route::get('/catbook/{id}/', [CatBooksController::class, 'CatBook']);
+    Route::get('/category/{id}', [PagesController::class,'viewCategory'])->name('category');
+    Route::get('/book/{id}',[PagesController::class,'viewBook'])->name('book');
+    });

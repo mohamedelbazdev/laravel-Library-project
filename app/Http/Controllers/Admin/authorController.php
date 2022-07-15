@@ -1,24 +1,23 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
-use App\Models\User;
+
+use App\Models\Author;
 use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class authorController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $user = User::orderBy('created_at','desc')->get();
-        return view('admin.users.index',compact('user'));
+        $author = Author::orderBy('created_at','desc')->get();
+        return view('admin.authors.index',compact('author'));
     }
 
     /**
@@ -28,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        return view('admin.authors.create');
     }
 
     /**
@@ -43,15 +42,16 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required',
             'password'=>'required',
+            'book_id'=>'required',
         ]);
-        $user = User::create([
+        $user = Author::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=> Hash::make($request->password),
+            'password'=>$request->password,
+            'book_id'=>$request->book_id,
         ]);
         $user->save();
-        return redirect( route( 'users.index' ) )->with( 'msg', 'User Added Successfully' );
-
+        return redirect( route( 'authors.index' ) )->with( 'msg', 'Authors Added Successfully' );
     }
 
     /**
@@ -73,8 +73,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $edit = User::find($id) ;
-      return view( 'admin.users.edit',compact('edit'));
+        $edit = Author::find($id) ;
+      return view( 'admin.authors.edit',compact('edit'));
     }
 
     /**
@@ -90,21 +90,15 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required',
             'password'=>'required',
+            'book_id'=>'required',
         ]);
-        User::where('id',$id)->update([
+        Author::where('id',$id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>$request->password,
+            'book_id'=>$request->book_id,
         ]);
-        return redirect( route( 'users.index' ) )->with( 'msg', 'User Updated Successfully' );
-    }
-
-    public function changeUserStatus(Request $request)
-    {
-        $users = User::find($request->user_id);
-        $users->status = $request->status;
-        $users->save();
-        return redirect( route( 'users.index' ) )->with( 'msg', 'User Status Updated Successfully' );
+        return redirect( route( 'authors.index' ) )->with( 'msg', 'Author Updated Successfully' );
     }
 
     /**
@@ -115,18 +109,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect( route( 'users.index' ) )->with( 'rmv', 'User has been deleted' );
-    }
-
-    public function Inactive($id)
-    {
-        User::find($id)->update(['status' => 0]);
-        return redirect()->back()->with( 'rmv', 'User has been Inactive' );
-    }
-    public function Active($id)
-    {
-        User::find($id)->update(['status' => 1]);
-        return redirect()->back()->with( 'msg', 'User has been Active' );
+        Author::find($id)->delete();
+        return redirect( route( 'authors.index' ) )->with( 'rmv', 'Author has been deleted' );
     }
 }
