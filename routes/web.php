@@ -78,6 +78,10 @@ Route::group(array('prefix' => 'site'), function () {
     Route::get('/books', [SiteBookController::class, 'books'])->name('books');
 
     Route::get('/catbook/{id}/', [CatBooksController::class, 'CatBook']);
+
+    Route::get('favourites', [FavouriteController::class, 'index']);
+
     Route::get('/category/{id}', [PagesController::class,'viewCategory'])->name('category');
     Route::get('/book/{id}',[PagesController::class,'viewBook'])->name('book');
+
     });
