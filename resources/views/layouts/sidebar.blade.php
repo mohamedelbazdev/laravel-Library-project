@@ -87,7 +87,7 @@
                 <li class="nav-item menu " >
                     <a href="#" class="nav-link  {{ Request::is('users') ? 'active':'' }} {{ Request::is('users/create') ? 'active':'' }}">
 
-                        <i class="nav-icon fas fa-user"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
                             <i class="right fas fa-angle-left"></i>

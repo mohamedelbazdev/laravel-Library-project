@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Rate;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\Hash;
 
 class RateController extends Controller
 {
