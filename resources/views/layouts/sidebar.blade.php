@@ -32,7 +32,7 @@
 
                {{-- Categories --}}
                 <li class="nav-item menu">
-                    <a href="#" class="nav-link ">
+                    <a href="#" class="nav-link {{ Request::is('admin/category')? 'active':''}} {{ Request::is('admin/category/create')? 'active':''}}"">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Categories
@@ -40,7 +40,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item {{ Request::is('admin/categories')? 'active':'';}}">
+                        <li class="nav-item ">
                             <a href="{{ route('category.create') }}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Category</p>
@@ -57,8 +57,8 @@
                 </li>
 
                 {{-- Books --}}
-                <li class="nav-item menu {{ Request::is('admin/books')? 'active':'';}}" >
-                    <a href="#" class="nav-link ">
+                <li class="nav-item menu  " >
+                    <a href="#" class="nav-link {{ Request::is('admin/books') ? 'active':'' }} {{ Request::is('admin/books/create')? 'active':''}}">
                         <i class="fas fa-book-open"></i>
 
                         <p>
@@ -66,8 +66,8 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
+                    <ul class="nav nav-treeview ">
+                        <li class="nav-item ">
                             <a href="{{ route('books.create') }}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Books</p>
@@ -84,8 +84,8 @@
                 </li>
 
                 {{-- Users --}}
-                <li class="nav-item menu {{ Request::is('admin/categories')? 'active':'';}}" >
-                    <a href="#" class="nav-link ">
+                <li class="nav-item menu " >
+                    <a href="#" class="nav-link  {{ Request::is('users') ? 'active':'' }} {{ Request::is('users/create') ? 'active':'' }}">
 
                         <i class="nav-icon fas fa-user"></i>
                         <p>
@@ -95,7 +95,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('users.create') }}" class="nav-link ">
+                            <a href="{{ route('users.create') }}" class="nav-link  " >
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add User</p>
                             </a>
@@ -111,8 +111,8 @@
                 </li>
 
                 {{-- Admins --}}
-                <li class="nav-item menu {{ Request::is('admin/categories')? 'active':'';}}" >
-                    <a href="#" class="nav-link ">
+                <li class="nav-item menu" >
+                    <a href="#" class="nav-link  {{ Request::is('admin/admins') ? 'active':'' }} {{ Request::is('admin/admins/create') ? 'active':'' }} ">
 
                         <i class="nav-icon fas fa-user"></i>
                         <p>
@@ -137,7 +137,7 @@
                     </ul>
                 </li>
                 {{-- Authors --}}
-                <li class="nav-item menu {{ Request::is('admin/categories')? 'active':'';}}" >
+                <li class="nav-item menu {{ Request::is('authors')? 'active':'';}}" >
                     <a href="#" class="nav-link ">
 
                         <i class="nav-icon fas fa-user"></i>
@@ -169,9 +169,4 @@
     <!-- /.sidebar -->
 </aside>
 
-<script>
-    $(".nav-link").on("click", function() {
-  $(".nav-link").find(".active").removeClass("active");
-  $(this).parent().addClass("active");
-});
-</script>
+
