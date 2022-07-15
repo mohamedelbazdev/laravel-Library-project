@@ -27,6 +27,7 @@
                     {!! Form::text('name', null, ['class' => 'form-control mb-2', 'placeholder' => 'Enter Your Name']) !!}
                     {!! Form::email('email', null, ['class' => 'form-control mb-2', 'placeholder' => 'Enter Your Email']) !!}
                     {!! Form::password('password', ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
+                    <input type="number" name="book_id" value="book_id" class="form-control"placeholder="Enter Your book_id">
                     <!-- {!! Form::password('book_id', ['class' => 'form-control mb-2','placeholder' => 'Enter Your book_id']) !!} -->
 
                 </div>

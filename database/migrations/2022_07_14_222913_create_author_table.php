@@ -18,7 +18,7 @@ class CreateAuthorTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            // $table->integer('book_id');
+            $table->integer('book_id');
             $table->timestamps();
         });
     }

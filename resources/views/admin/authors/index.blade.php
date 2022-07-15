@@ -27,6 +27,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Password</th>
+                <th>book_id</th>
                 <th>ِAction</th>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                     <td>{{$author->name}}</td>
                     <td>{{$author->email}}</td>
                     <td>{{$author->password}}</td>
+                    <td>{{$author->book_id}}</td>
                     <td>
                         <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-success">Edit</a>
                         <form class="d-inline" action="{{ url('/authors/' . $author->id) }}" method="POST">

@@ -42,13 +42,13 @@ class authorController extends Controller
             'name'=>'required',
             'email'=>'required',
             'password'=>'required',
-            // 'book_id'=>'required',
+            'book_id'=>'required',
         ]);
         $user = Author::create([
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>$request->password,
-            // 'book_id'=>$request->book_id,
+            'book_id'=>$request->book_id,
         ]);
         $user->save();
         return redirect( route( 'authors.index' ) )->with( 'msg', 'Authors Added Successfully' );
@@ -90,13 +90,13 @@ class authorController extends Controller
             'name'=>'required',
             'email'=>'required',
             'password'=>'required',
-            // 'book_id'=>'required',
+            'book_id'=>'required',
         ]);
         Author::where('id',$id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>$request->password,
-            // 'book_id'=>$request->book_id,
+            'book_id'=>$request->book_id,
         ]);
         return redirect( route( 'authors.index' ) )->with( 'msg', 'Author Updated Successfully' );
     }
