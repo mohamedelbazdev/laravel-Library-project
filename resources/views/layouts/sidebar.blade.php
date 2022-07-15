@@ -40,7 +40,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
+                        <li class="nav-item {{ Request::is('admin/categories')? 'active':'';}}">
                             <a href="{{ route('category.create') }}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Category</p>
@@ -57,7 +57,7 @@
                 </li>
 
                 {{-- Books --}}
-                <li class="nav-item menu" >
+                <li class="nav-item menu {{ Request::is('admin/books')? 'active':'';}}" >
                     <a href="#" class="nav-link ">
                         <i class="fas fa-book-open"></i>
 
@@ -84,7 +84,7 @@
                 </li>
 
                 {{-- Users --}}
-                <li class="nav-item menu" >
+                <li class="nav-item menu {{ Request::is('admin/categories')? 'active':'';}}" >
                     <a href="#" class="nav-link ">
 
                         <i class="nav-icon fas fa-user"></i>
@@ -111,7 +111,7 @@
                 </li>
 
                 {{-- Admins --}}
-                <li class="nav-item menu" >
+                <li class="nav-item menu {{ Request::is('admin/categories')? 'active':'';}}" >
                     <a href="#" class="nav-link ">
 
                         <i class="nav-icon fas fa-user"></i>
@@ -137,7 +137,7 @@
                     </ul>
                 </li>
                 {{-- Authors --}}
-                <li class="nav-item menu" >
+                <li class="nav-item menu {{ Request::is('admin/categories')? 'active':'';}}" >
                     <a href="#" class="nav-link ">
 
                         <i class="nav-icon fas fa-user"></i>

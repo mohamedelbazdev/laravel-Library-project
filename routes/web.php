@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Site\SiteBookController;
+use App\Http\Controllers\Site\FavouriteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
@@ -75,6 +76,7 @@ Route::group(array('prefix' => 'site'), function () {
     Route::get('/catbook/{id}/', [CatBooksController::class, 'CatBook']);
 
     Route::get('favourites', [FavouriteController::class, 'index']);
+    Route::post('add-to-favourite', [FavouriteController::class, 'add']);
 
     Route::get('/category/{id}', [PagesController::class,'viewCategory'])->name('category');
     Route::get('/book/{id}',[PagesController::class,'viewBook'])->name('book');
