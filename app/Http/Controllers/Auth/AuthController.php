@@ -45,7 +45,7 @@ class AuthController extends Controller
         // dd($request->email);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect('dashboard')
+            return redirect('/site/books')
                         ->withSuccess('You have Successfully loggedin');
         }
 
@@ -65,8 +65,10 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $data = $request->all();
-        $check = $this->create($data);
+        $check = $this->create(array_merge(
+            $request->all(),
+            ['password' => \Illuminate\Support\Facades\Hash::make($request->password)],
+        ));
 
         return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
