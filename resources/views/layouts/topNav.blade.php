@@ -8,7 +8,7 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="/" class="nav-link">Home</a>
         </li>
-       
+
     </ul>
 
     <!-- Right navbar links -->
@@ -36,7 +36,7 @@
             </div>
         </li>
 
-      
+
         <!-- Notifications Dropdown Menu -->
         <!-- <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">

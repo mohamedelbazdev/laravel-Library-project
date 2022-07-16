@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\authorController;
 use App\Http\Controllers\Site\PagesController;
 use App\Http\Controllers\Site\PaymentController;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Middleware\isActive;
 
 
 
@@ -28,6 +29,10 @@ use Illuminate\Support\Facades\Redirect;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+// Route::post('logout', [UserController::class, 'logout'])->name('logout');
+
 
 Route::get('/', function () {
     return Redirect::to('/site/books');
@@ -92,3 +97,10 @@ Route::group(array('prefix' => 'site'), function () {
     Route::get('/book/{id}',[PagesController::class,'viewBook'])->name('book');
 
 });
+
+Route::middleware([isActive::class])->group(function(){
+
+    Route::get('home', [HomeController::class,'home']);
+});
+
+Route::get('admin/routes', 'HomeController@admin')->middleware('admin');

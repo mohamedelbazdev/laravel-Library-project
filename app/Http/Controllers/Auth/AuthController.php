@@ -45,7 +45,12 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+
         // dd($request->email);
+        $user= User::find($request->post('email'));
+        if ($user && $user->status != '1'){
+            return redirect("login")->withSuccess('Oppes! this user not active');
+        }
         $credentials = $request->only('email', 'password');
         $credentials['status'] = 1;
         if (Auth::attempt($credentials)) {

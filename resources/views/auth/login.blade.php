@@ -1,6 +1,14 @@
 @extends('layout')
 
+
 @section('content')
+@include('partial.alerts')
+@if (session('success'))
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ session('success') }}
+        </div>
+    @endif
 <main class="login-form">
   <div class="cotainer">
       <div class="row justify-content-center">
