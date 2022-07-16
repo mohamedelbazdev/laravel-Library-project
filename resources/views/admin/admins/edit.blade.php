@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-danger text-bold">Edit admin</h1>
+                <h1 class="m-0">Edit admin / {{$edit['name']}}</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@
                     <label for="exampleInputName">Admins</label>
                     {!! Form::text('name', $edit['name'], ['class' => 'form-control mb-2']) !!}
                     {!! Form::email('email', $edit['email'], ['class' => 'form-control mb-2']) !!}
-                    {!! Form::password('password', null, ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
+                    {!! Form::password('password', ['class' => 'form-control mb-2','placeholder' => 'Enter Your Password']) !!}
                 </div>
                 <br>
 
