@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\authorController;
 use App\Http\Controllers\Site\PagesController;
 use App\Http\Controllers\Site\PaymentController;
+use Illuminate\Support\Facades\Redirect;
 
 
 
@@ -28,8 +29,11 @@ use App\Http\Controllers\Site\PaymentController;
 |
 */
 
+Route::get('/', function () {
+    return Redirect::to('/site/books');
+});
 
-Route::get('admin/login', [AdminAuthController::class, 'index']);
+Route::get('admin/login', [AdminAuthController::class, 'index'])->middleware('isGuest');
 Route::post('admin/login', [AdminAuthController::class, 'login'])->name('login.admin');
 
 Route::group(['middleware' => 'isAdmin','prefix' => 'admin'], function () {
@@ -40,10 +44,11 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin'], function () {
     Route::resource('books', BookController::class);
     Route::resource('users', UserController::class);
     Route::resource('admins', AdminController::class);
+    Route::resource('authors', authorController::class);
+
 });
 
 ///////Admin controllers/////
-Route::resource('authors', authorController::class);
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
