@@ -73,9 +73,10 @@ Route::group(array('prefix' => 'site'), function () {
     Route::post('/profile-update',[UserController::class, 'updateProfile'])->name('profile-update');
 
     Route::get('/catbook/{id}/', [CatBooksController::class, 'CatBook']);
-
+/////////////////////////esraaaaa/////////////////////////////
     Route::get('favourites', [FavouriteController::class, 'index'])->name('site.favourite');
     Route::post('add-to-favourite', [FavouriteController::class, 'add']);
+    Route::get('count_fav', [FavouriteController::class, 'count']);
     Route::get('delete-fav/{id}', [FavouriteController::class, 'destroy'])->name('fav.destroy');
 
     Route::get('payments', [PaymentController::class, 'index'])->name('site.payments');

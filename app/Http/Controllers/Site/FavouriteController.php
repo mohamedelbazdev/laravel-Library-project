@@ -43,6 +43,14 @@ class FavouriteController extends Controller
     }
 
 
+    public function count(){
+        // $counter=Favourite::where('user_id', Auth::id())->count();
+        $counter=Favourite::where('user_id',1)->count();
+        return response()->json(['counter'=>$counter]);
+
+    }
+
+
 
 
     public function destroy($id){
