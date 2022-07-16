@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Admin\Hash;
 use App\Http\Controllers\Controller;
 use App\Models\Rate;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Admin\Hash;
 
 class RateController extends Controller
 {
@@ -33,16 +33,6 @@ class RateController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -62,28 +52,6 @@ class RateController extends Controller
         ]);
 
         $rate->save();
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
 
     }
 

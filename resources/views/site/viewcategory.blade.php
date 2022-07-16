@@ -50,25 +50,23 @@
                                 <p class="inner__des">{{ $book['desc'] }}</p>
                             </div>
                             <div class="d-flex align-items-center justify-content-center mb-1">
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small>(99)</small>
+
+                                <small onclick="saveRate('{{ $book->id }}', '1')" class="fa fa-star text-primary mr-1"></small>
+                                <small onclick="saveRate('{{ $book->id }}', '2')" class="fa fa-star text-primary mr-1"></small>
+                                <small onclick="saveRate('{{ $book->id }}', '3')" class="fa fa-star text-primary mr-1"></small>
+                                <small onclick="saveRate('{{ $book->id }}', '4')" class="fa fa-star text-primary mr-1"></small>
+                                <small onclick="saveRate('{{ $book->id }}', '5')" class="fa fa-star text-primary mr-1"></small>
+<!--                                <small>(99)</small>-->
                             </div>
                         </div>
                     </div>
                 </div>
             @endforeach
 
-
-
         </div>
 
         <div class="col-12">
             <nav>
-
                 <ul class="pagination justify-content-center">
                     {{-- <!-- {{ $books->links() }} --> --}}
                     <li class="page-item disabled"><a class="page-link" href="#">Previous</span></a></li>
@@ -80,7 +78,23 @@
                 </ul>
             </nav>
         </div>
-
     </div>
     <!-- Shop Product End -->
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+    function saveRate(bookId, rate){
+        alert(rate)
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url: "/api/user/rate/store",
+            data: {'book_id': bookId, 'rate': rate, 'user_id' : "<?php echo Illuminate\Support\Facades\Auth::id() ?>"},
+            success: function(data){
+                console.log(data.success);
+            }
+        });
+    }
+</script>
+ِ

@@ -27,5 +27,6 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:sanctum'], function (){
 
 Route::group(['prefix' => 'user'], function (){
     Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);
+    Route::post('rate/store', [\App\Http\Controllers\Api\RateController::class, 'store']);
 });
 
