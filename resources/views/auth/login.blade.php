@@ -3,12 +3,12 @@
 
 @section('content')
 @include('partial.alerts')
-@if (session('errors'))
-        <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            {{ session('errors') }}
-        </div>
-    @endif
+<!--@if (session('errors'))-->
+<!--        <div class="alert alert-danger" role="alert">-->
+<!--            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+<!--            {{ session('errors') }}-->
+<!--        </div>-->
+<!--    @endif-->
 <main class="login-form">
   <div class="cotainer">
       <div class="row justify-content-center">
