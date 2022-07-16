@@ -49,7 +49,7 @@ class AuthController extends Controller
         // dd($request->email);
         $user= User::find($request->post('email'));
         if ($user && $user->status != '1'){
-            return redirect("login")->withSuccess('Oppes! this user not active');
+            return redirect("login")->withErrors('Oppes! this user not active');
         }
         $credentials = $request->only('email', 'password');
         $credentials['status'] = 1;
@@ -58,7 +58,7 @@ class AuthController extends Controller
                         ->withSuccess('You have Successfully loggedin');
         }
 
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect("login")->withErrors('Oppes! You have entered invalid credentials');
     }
 
     /**
