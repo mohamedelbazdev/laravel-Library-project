@@ -41,6 +41,7 @@ Route::get('/', function () {
 Route::get('admin/login', [AdminAuthController::class, 'index'])->middleware('isGuest');
 Route::post('admin/login', [AdminAuthController::class, 'login'])->name('login.admin');
 
+///////Admin /////
 Route::group(['middleware' => 'isAdmin','prefix' => 'admin'], function () {
     Route::get('/', function () {
         return view('index');
@@ -50,10 +51,8 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin'], function () {
     Route::resource('users', UserController::class);
     Route::resource('admins', AdminController::class);
     Route::resource('authors', authorController::class);
-
 });
 
-///////Admin controllers/////
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');

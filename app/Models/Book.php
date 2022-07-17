@@ -21,6 +21,10 @@ class Book extends Model
         return $this->hasMany(Favourite::class, 'book_id');
     }
 
+    public function payments(){
+        return $this->hasMany(Payment::class, 'book_id');
+    }
+
     public function getList()
     {
 

@@ -18,10 +18,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/**
+ * @author Ahmed Mohamed
+ */
+
 Route::group(['prefix' => 'user', 'middleware' => 'auth:sanctum'], function (){
     Route::get('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
     Route::post('books/search', [\App\Http\Controllers\API\BookController::class, 'search']);
     Route::get('books/favorite', [\App\Http\Controllers\API\BookController::class, 'getFavoriteBook']);
+    Route::get('books/payment', [\App\Http\Controllers\API\PaymentController::class, 'getPayedBook']);
     Route::post('books/show', [\App\Http\Controllers\API\BookController::class, 'show']);
 });
 
