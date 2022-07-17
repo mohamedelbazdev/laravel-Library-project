@@ -11,6 +11,7 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
@@ -48,5 +49,27 @@ class PaymentController extends Controller
         })->get();
 
         return $this->apiResponse('successfully', $books);
+    }
+
+    /**
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function purchaseBook(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'book_id' => 'required|exists:books,id',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->apiResponseValidation($validator);
+        }
+
+        $pay = $this->paymentModel->create([
+            'book_id' => $request->post('book_id'),
+            'user_id' => Auth::id()
+        ]);
+
+        return $this->apiResponse('successfully', $pay);
     }
 }

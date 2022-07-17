@@ -27,6 +27,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:sanctum'], function (){
     Route::post('books/search', [\App\Http\Controllers\API\BookController::class, 'search']);
     Route::get('books/favorite', [\App\Http\Controllers\API\BookController::class, 'getFavoriteBook']);
     Route::get('books/payment', [\App\Http\Controllers\API\PaymentController::class, 'getPayedBook']);
+    Route::post('books/payment', [\App\Http\Controllers\API\PaymentController::class, 'purchaseBook']);
     Route::post('books/show', [\App\Http\Controllers\API\BookController::class, 'show']);
 });
 
